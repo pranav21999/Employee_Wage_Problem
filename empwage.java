@@ -1,19 +1,28 @@
-class empwage1
+class empwage
 {
-	public static void main(String args[])
-	{
-	 	System.out.println("Welcome to empwage computation");
-	
+		// variable initialization
 		int IS_FULL_TIME = 1;
-	        int IS_PART_TIME = 2;
+        int IS_PART_TIME = 2;
 		int EMP_RATE_PER_HOUR = 20;
-        	int emphrs = 0;
-        	int empwage = 0;
+        int emphrs = 0;
+        int empwage = 0;
 		int days=0;
 		int	total_wage=0;
 		int total_hrs=0;
-		 while (total_hrs <=100 && days < 21)                       
-		  {         
+	
+	// method for welcome msg
+		void welcome()
+		 {
+				 System.out.println("Welcome to empwage computation");
+	
+		 }
+		// method for calculate wages
+
+		void calculate()
+		{
+			 while (total_hrs <=100 && days < 21) 
+                                         
+		{         
 			int empcheck = (int) Math.floor(Math.random() * 10) % 3; // generate random no 0 or 1 or 2 
 			days++;
 			switch(empcheck)
@@ -43,5 +52,17 @@ class empwage1
 					System.out.println("Total Monthly Wage : " + total_hrs);	 
 					System.out.println("Total Monthly Wage : " + total_wage);
 	 
+			
+		}
+	
+	
+	public static void main(String args[])
+	{	
+	empwage wage=new empwage();//creating object
+	wage.welcome();//calling method to the object
+	wage.calculate();
+	
+
+		
 	}
 }
