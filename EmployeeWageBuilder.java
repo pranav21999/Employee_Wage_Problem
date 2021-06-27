@@ -1,12 +1,14 @@
 package employeewage;
 
+import java.util.*;
+
 public class EmployeeWageBuilder implements EmpWageInterface {
 	// declaring static variables
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 
-	private int numOfCompany = 0;
-	private CompanyEmpWage[] companyEmpWageArray;
+	//creating ArratList
+	private ArrayList<CompanyEmpWage> companyEmpArrayList;
 	
 
 	//main method
@@ -21,23 +23,24 @@ public class EmployeeWageBuilder implements EmpWageInterface {
 		empwage.computeEmpWage();
 	}
 
-   //constructor
+   	//constructor
 	public EmployeeWageBuilder() {
-		companyEmpWageArray = new CompanyEmpWage[5];
+		companyEmpArrayList = new ArrayList<CompanyEmpWage>();
 	}
 	
 	
 	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
 
-		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays,
+		CompanyEmpWage companyEmpWage= new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays,
 				maxHoursPerMonth);
-		numOfCompany++;
+		companyEmpArrayList.add(companyEmpWage);
 	}
-	//method to pass the values of no of companies in Array
+
  	public void computeEmpWage() {
-		for (int i = 0; i < numOfCompany; i++) {
-			companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
-			System.out.println(companyEmpWageArray[i]);
+		for (int i = 0; i < companyEmpArrayList.size(); i++) {
+			CompanyEmpWage companyEmpwage = companyEmpArrayList.get(i);
+			companyEmpwage.setTotalEmpWage(this.computeEmpWage(companyEmpwage));
+			System.out.println(companyEmpwage.company + "Total Wage is " + companyEmpwage.totalWage);
 		}
 	}
 
