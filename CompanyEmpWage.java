@@ -1,8 +1,7 @@
 package employeewage;
 
+
 public class CompanyEmpWage {
-	public static final int IS_FULL_TIME = 1;
-	public static final int IS_PART_TIME = 2;
 
 	public final String company;
 	public final int empRatePerHour;
@@ -10,6 +9,7 @@ public class CompanyEmpWage {
 	public final int maxHoursPerMonth;
 	public int totalWage;
 
+	//Parameterised constructor for defining variables
 	public CompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
 		this.company = company;
 		this.empRatePerHour = empRatePerHour;
@@ -17,7 +17,7 @@ public class CompanyEmpWage {
 		this.maxHoursPerMonth = maxHoursPerMonth;
 
 	}
-
+	//setter mathod for totalWage
 	public void setTotalEmpWage(int totalWage) {
 		this.totalWage = totalWage;
 	}
